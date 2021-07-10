@@ -7,10 +7,10 @@ jobs:
 
     Test:
       runs-on: ubuntu-latest
-      environment: TestEnvKAFSIFHSIF
+      environment: TestEnv
       steps:
       - name: Var
-        run: env
+        run: $SECRET
       
       - name: login with docker
         run: docker login ghcr.io -u jonnox0 -p $SECRET
