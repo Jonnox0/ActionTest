@@ -22,11 +22,4 @@ jobs:
       
     - name: docker build
       uses: docker/build-push-action@v2
-      with:
-        username: ${{github.actor}}
-        password: ${{secrets.GITHUB_TOKEN}}
-        registry: docker.pkg.github.com
-        file: /TestWebApplication/Dockerfile
-        repository: jonnox0/github-actions-for-packages/mytestcontainer
-        tag_with_sha: true
 
