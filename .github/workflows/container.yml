@@ -1,32 +1,34 @@
+
 name: Build Container
 
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Var
-      run: env
+  TestEnv:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Var
+        run: env
       
-    - name: login with docker
-      run: docker login ghcr.io -u jonnox0 -p $SECRET
+      - name: login with docker
+        run: docker login ghcr.io -u jonnox0 -p $SECRET
     
-    - name: Setup .NET Core SDK 5.0.x
-      uses: actions/setup-dotnet@v1.7.2
-      with:
-          dotnet-version: 5.0.x
+      - name: Setup .NET Core SDK 5.0.x
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+            dotnet-version: 5.0.x
           
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: dotnet restore
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: dotnet restore
       
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
       
-    - name: docker build
-      uses: docker/build-push-action@v2
+      - name: docker build
+        uses: docker/build-push-action@v2
       
-    - name: register container
-      run: sudo docker image push ghcr.io/jonnox0/ActionTest1:latest
+      - name: register container
+        run: sudo docker image push ghcr.io/jonnox0/ActionTest1:latest
 
