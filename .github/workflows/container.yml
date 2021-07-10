@@ -25,6 +25,6 @@ jobs:
       
     - name: register container
       run: |
-        winpty echo $secret | docker login ghcr.io -u jonnox0 --password-stdin
+        winpty echo $SECRET | docker login ghcr.io -u jonnox0 --password-stdin
         winpty docker image push ghcr.io/jonnox0/ActionTest1:latest
 
