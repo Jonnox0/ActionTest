@@ -16,7 +16,9 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: |
+        dotnet build --configuration Release --no-restore
+        echo dir
       
     - name: docker build
       run: docker build ./TestWebApplication -t jonnox0/mytestcontainer
