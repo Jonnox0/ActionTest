@@ -25,6 +25,6 @@ jobs:
       
     - name: register container
       run: |
-        docker login ghcr.io -u jonnox0 -p $SECRET
-        docker image push ghcr.io/jonnox0/ActionTest1:latest
+        sudo docker login ghcr.io -u jonnox0 -p $SECRET
+        sudo docker image push ghcr.io/jonnox0/ActionTest1:latest
 
