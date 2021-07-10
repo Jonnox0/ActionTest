@@ -4,8 +4,8 @@ name: Build Container
 on: [push]
 
 jobs:
-  
-    build:
+
+    Test:
       runs-on: ubuntu-latest
       environment: TestEnv
       steps:
