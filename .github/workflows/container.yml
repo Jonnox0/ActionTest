@@ -6,10 +6,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+    - name: Setup .NET Core SDK 5.0.x
       uses: actions/setup-dotnet@v1.7.2
       with:
           dotnet-version: 5.0.x
+          
     - name: Install dependencies
       run: dotnet restore
       
