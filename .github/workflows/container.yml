@@ -8,4 +8,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: docker build 
-      run: docker build ./c# -t jonnox0/mytestcontainer
+      run: docker build ./TestWebApplication -t jonnox0/mytestcontainer
