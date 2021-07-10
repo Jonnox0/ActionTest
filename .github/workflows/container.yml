@@ -21,8 +21,11 @@ jobs:
         dir
       
     - name: docker build
-      run: docker build ./TestWebApplication -t jonnox0/mytestcontainer
-    - uses: actions/upload-artifact@master
+      uses: docker/build-push-action@v1
       with:
-        name: testcontainer
-        path: public/
+        username: ${{github.actor}}
+        password: ${{secrets.GITHUB_TOKEN}}
+        registry: docker.pkg.github.com
+        repository: Jonnox0/github-actions-for-packages/mytestcontainer
+        tag_with_sha: true
+
