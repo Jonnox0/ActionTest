@@ -10,7 +10,7 @@ jobs:
       environment: TestEnv
       steps:
       - name: Var
-        run: $SECRET
+        run: echo $SECRET
       
       - name: login with docker
         run: docker login ghcr.io -u jonnox0 -p $SECRET
