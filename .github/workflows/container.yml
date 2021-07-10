@@ -26,6 +26,6 @@ jobs:
         username: ${{github.actor}}
         password: ${{secrets.GITHUB_TOKEN}}
         registry: docker.pkg.github.com
-        repository: Jonnox0/github-actions-for-packages/mytestcontainer
+        repository: jonnox0/github-actions-for-packages/mytestcontainer
         tag_with_sha: true
 
