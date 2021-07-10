@@ -22,3 +22,7 @@ jobs:
       
     - name: docker build
       run: docker build ./TestWebApplication -t jonnox0/mytestcontainer
+    - uses: actions/upload-artifact@master
+      with:
+        name: testcontainer
+        path: public/
