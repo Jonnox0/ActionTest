@@ -21,12 +21,12 @@ jobs:
         dir
       
     - name: docker build
-      uses: docker/TestWebApplication/build-push-action@v1
+      uses: docker/build-push-action@v1
       with:
         username: ${{github.actor}}
         password: ${{secrets.GITHUB_TOKEN}}
         registry: docker.pkg.github.com
-        file: ${context}/Dockerfile
+        file: ${context}/TestWebApplication/Dockerfile
         repository: jonnox0/github-actions-for-packages/mytestcontainer
         tag_with_sha: true
 
