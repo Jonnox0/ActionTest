@@ -30,10 +30,12 @@ jobs:
       
       - name: docker build
         uses: docker/build-push-action@v2
+        with:
+            image: actionTest:master
         
       - name: docker images
         run: docker image list
       
       - name: register container
-        run: sudo docker image push ghcr.io/jonnox0/webapplicationtest:master
+        run: sudo docker image push ghcr.io/§{{GITHUB_REPOSITORY}}/actionTest:master
 
