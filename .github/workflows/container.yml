@@ -7,7 +7,7 @@ jobs:
 
     Test:
       runs-on: ubuntu-latest
-      environment: TestEnv
+      environment: TestEnvKAFSIFHSIF
       steps:
       - name: Var
         run: env
