@@ -29,11 +29,11 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       
       - name: docker build p
-        run: docker build . -t jonnox0/actiontest:master
+        run: docker build . -t ghcr.io/jonnox0/actiontest:master
         
       - name: docker images
         run: docker image list
       
       - name: register container
-        run: sudo docker image push ghcr.io/jonnox0/actiontest:master
+        run: sudo docker image push jonnox0/actiontest:master
 
