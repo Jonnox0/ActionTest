@@ -36,4 +36,6 @@ jobs:
       
       - name: register container
         run: docker image push ghcr.io/jonnox0/actiontest:master
+      - name: docker logout
+        run: docker logout
 
