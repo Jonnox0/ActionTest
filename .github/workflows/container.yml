@@ -9,10 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         environment: TestEnv
         steps:
-      
-        - name: login with docker
-          run: docker login ghcr.io -u jonnox0 -p ${{ secrets.Secret }}
-    
+          
         - name: Setup .NET Core SDK 5.0.x
           uses: actions/setup-dotnet@v1.7.2
           with:
@@ -26,13 +23,14 @@ jobs:
         - name: Build
           run: dotnet build --configuration Release --no-restore
       
-        - name: Docker build p
+        - name: Docker Build
           run: docker build . -t ghcr.io/jonnox0/actiontest:master
-        
-        - name: docker images
-          run: docker image list
+          
+        - name: login with docker
+          run: docker login ghcr.io -u jonnox0 -p ${{ secrets.Secret }}
       
         - name: register container
           run: docker image push ghcr.io/jonnox0/actiontest:master
+          
         - name: docker logout
           run: docker logout
