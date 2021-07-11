@@ -15,7 +15,8 @@ jobs:
           with:
             dotnet-version: 5.0.x
           
-        - uses: actions/checkout@v2
+        - name: Checkout
+          uses: actions/checkout@v2
       
         - name: Restore Nuget
           run: dotnet restore
@@ -33,7 +34,10 @@ jobs:
     Container:
         runs-on: ubuntu-latest
         environment: TestEnv
-        steps:      
+        steps:
+        
+        - name: Checkout
+          uses: actions/checkout@v2
       
         - name: Docker Build
           run: docker build . -t ghcr.io/jonnox0/actiontest:master
