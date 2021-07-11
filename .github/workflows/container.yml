@@ -1,41 +1,38 @@
 
-name: Build Container
+name: Main Workflow
 
 on: [push]
 
 jobs:
 
-    Test:
-      runs-on: ubuntu-latest
-      environment: TestEnv
-      steps:
-      - name: Var
-        run: echo $SECRET
+    Build:
+        runs-on: ubuntu-latest
+        environment: TestEnv
+        steps:
       
-      - name: login with docker
-        run: docker login ghcr.io -u jonnox0 -p ${{ secrets.Secret }}
+        - name: login with docker
+          run: docker login ghcr.io -u jonnox0 -p ${{ secrets.Secret }}
     
-      - name: Setup .NET Core SDK 5.0.x
-        uses: actions/setup-dotnet@v1.7.2
-        with:
+        - name: Setup .NET Core SDK 5.0.x
+          uses: actions/setup-dotnet@v1.7.2
+          with:
             dotnet-version: 5.0.x
           
-      - uses: actions/checkout@v2
+        - uses: actions/checkout@v2
       
-      - name: Install dependencies
-        run: dotnet restore
+        - name: Install dependencies
+          run: dotnet restore
       
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+        - name: Build
+          run: dotnet build --configuration Release --no-restore
       
-      - name: docker build p
-        run: docker build . -t ghcr.io/jonnox0/actiontest:master
+        - name: Docker build p
+          run: docker build . -t ghcr.io/jonnox0/actiontest:master
         
-      - name: docker images
-        run: docker image list
+        - name: docker images
+          run: docker image list
       
-      - name: register container
-        run: docker image push ghcr.io/jonnox0/actiontest:master
-      - name: docker logout
-        run: docker logout
-
+        - name: register container
+          run: docker image push ghcr.io/jonnox0/actiontest:master
+        - name: docker logout
+          run: docker logout
