@@ -35,5 +35,5 @@ jobs:
         run: docker image list
       
       - name: register container
-        run: sudo docker image push ghcr.io/jonnox0/actiontest:master
+        run: docker image push ghcr.io/jonnox0/actiontest:master
 
