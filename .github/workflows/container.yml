@@ -17,11 +17,19 @@ jobs:
           
         - uses: actions/checkout@v2
       
-        - name: Install dependencies
+        - name: Restore Nuget
           run: dotnet restore
       
         - name: Build
           run: dotnet build --configuration Release --no-restore
+        
+        - name: Upload Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: testActionBuild
+            path: TestWebApplication/bin/Release/net5.0
+            retention-days: 1
+      
       
         - name: Docker Build
           run: docker build . -t ghcr.io/jonnox0/actiontest:master
