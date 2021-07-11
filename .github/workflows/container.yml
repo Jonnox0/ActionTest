@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
       
-      - name: docker build
+      - name: docker build p
         run: docker build . -t jonnox0/actiontest:master
         
       - name: docker images
